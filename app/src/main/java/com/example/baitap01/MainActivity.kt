@@ -20,19 +20,22 @@ class MainActivity : AppCompatActivity() {
         val etInputText: EditText = findViewById(R.id.etInputText)
         val tvOutputText: TextView = findViewById(R.id.tvOutputText)
         val btnProcess: Button = findViewById(R.id.btnProcess)
+        val tvOriginalText: TextView = findViewById(R.id.tvOriginalText)
 
         // Xử lý khi nhấn nút
         btnProcess.setOnClickListener {
             val inputText = etInputText.text.toString()
 
-            // Đảo ngược chuỗi và chuyển thành chữ hoa
             val reversedText = inputText.split(" ").reversed().joinToString(" ").toUpperCase()
 
-            // Hiển thị kết quả
-            tvOutputText.text = reversedText
+            // Hiển thị chuỗi gốc
+            tvOriginalText.text = "Chuỗi gốc: $inputText"
+
+            // Hiển thị chuỗi đảo ngược
+            tvOutputText.text = "Chuỗi đảo ngược: $reversedText"
 
             // Hiển thị Toast thông báo
-            Toast.makeText(this, "Chuỗi sau khi đảo ngược: $reversedText", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Xử lý thành công!", Toast.LENGTH_SHORT).show()
         }
 
         // Tạo mảng ArrayList ngẫu nhiên với số nguyên
